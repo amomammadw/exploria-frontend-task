@@ -17,7 +17,7 @@
     </template>
 
     <template v-else>
-      <div class="p-3 absolute left-1/2 -translate-x-1/2 top-20">
+      <div class="p-3 w-full">
         No Items Found
         <button
           class="text-blue-500 underline transition-all hover:text-blue-700"

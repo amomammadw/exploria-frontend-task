@@ -1,13 +1,19 @@
 <template>
-  <div class="lg:overflow-x-clip overflow-x-hidden">
-    <table
-      v-if="data"
-      class="w-full lg:table block lg:overflow-clip overflow-auto relative"
+  <div>
+    <div
+      class="xl:overflow-x-clip xl:h-[calc(100dvh-160px)] h-[calc(100dvh-230px)] overflow-y-auto overflow-x-hidden"
     >
-      <BaseTableHeader />
+      <table
+        v-if="data"
+        class="w-full xl:table block xl:overflow-clip overflow-auto relative"
+      >
+        <BaseTableHeader />
 
-      <BaseTableBody />
-    </table>
+        <BaseTableBody />
+      </table>
+    </div>
+
+    <BaseTableFooter />
   </div>
 </template>
 

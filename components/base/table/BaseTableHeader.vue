@@ -1,5 +1,5 @@
 <template>
-  <thead class="bg-slate-100 whitespace-nowrap lg:sticky lg:top-[70px]">
+  <thead class="bg-slate-100 whitespace-nowrap sticky top-0">
     <tr>
       <td class="p-3 group" v-for="headerItem in headerItems">
         <div class="flex items-center gap-2">

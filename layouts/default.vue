@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <NuxtIsland name="MainHeader" />
-    <main class="my-5">
+    <main>
       <slot />
     </main>
   </div>
