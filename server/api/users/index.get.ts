@@ -1,7 +1,7 @@
-import users from "./records.json";
+import { usersList } from "~/data/records";
 
 export default defineCachedEventHandler((event) => {
-  const query = getQuery(event);
+  // const query = getQuery(event);
 
-  return { users };
+  return usersList;
 });
