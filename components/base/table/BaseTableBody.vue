@@ -6,7 +6,11 @@
         v-for="tableItem in data"
         class="hover:bg-slate-100 transition-all"
       >
-        <td v-for="tdItem in tableItem" class="p-3">
+        <td
+          v-for="(tdItem, tdKey) in tableItem"
+          class="p-3 whitespace-nowrap"
+          :class="tdKey === 'id' ? 'lg:max-w-full max-w-36 truncate' : ''"
+        >
           {{ tdItem }}
         </td>
       </tr>

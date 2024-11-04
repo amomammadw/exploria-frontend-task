@@ -1,6 +1,9 @@
 <template>
-  <div>
-    <table v-if="data" class="w-full relative">
+  <div class="lg:overflow-x-clip overflow-x-hidden">
+    <table
+      v-if="data"
+      class="w-full block lg:overflow-clip overflow-auto relative"
+    >
       <BaseTableHeader />
 
       <BaseTableBody />
