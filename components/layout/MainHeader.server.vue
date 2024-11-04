@@ -1,6 +1,6 @@
 <template>
   <header
-    class="container mt-4 sticky top-0 rounded h-16 flex bg-slate-200 items-center justify-between"
+    class="container mt-4 sticky z-50 top-0 rounded h-16 flex bg-slate-200 items-center justify-between"
   >
     <h1 class="block">Exploria Frontend Task</h1>
     <NuxtLink

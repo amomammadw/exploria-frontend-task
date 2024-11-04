@@ -1,7 +1,11 @@
 <template>
   <tbody>
     <template v-if="data && data.length > 0">
-      <tr v-for="tableItem in data" :key="tableItem.id">
+      <tr
+        :key="tableItem.id"
+        v-for="tableItem in data"
+        class="hover:bg-slate-100 transition-all"
+      >
         <td v-for="tdItem in tableItem" class="p-3">
           {{ tdItem }}
         </td>

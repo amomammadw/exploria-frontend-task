@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <NuxtIsland name="MainHeader" lazy />
+    <NuxtIsland name="MainHeader" />
     <main class="my-5">
       <slot />
     </main>
