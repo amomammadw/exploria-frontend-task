@@ -1,6 +1,6 @@
 <template>
   <div>
-    <table v-if="data" class="w-full">
+    <table v-if="data" class="w-full relative">
       <BaseTableHeader />
 
       <BaseTableBody />
@@ -21,6 +21,6 @@ const { data } = await useFetch("/api/users", {
 });
 
 // * set default queries
-if (!route.query.page && !route.query.per_page)
+if (!route.query.page || !route.query.per_page)
   setQuery({ page: "1", per_page: "10" });
 </script>
