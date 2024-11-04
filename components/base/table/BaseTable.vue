@@ -2,7 +2,7 @@
   <div class="lg:overflow-x-clip overflow-x-hidden">
     <table
       v-if="data"
-      class="w-full block lg:overflow-clip overflow-auto relative"
+      class="w-full lg:table block lg:overflow-clip overflow-auto relative"
     >
       <BaseTableHeader />
 
