@@ -1,7 +1,9 @@
 import { usersList } from "~/data/records";
+import { IUser } from "~/types/user.type";
 
 export default defineCachedEventHandler((event) => {
   const query = getQuery(event);
+  let result: IUser[] = [];
 
   if (query.per_page && query.page) {
     let page = parseInt(query.page.toString());
@@ -12,8 +14,21 @@ export default defineCachedEventHandler((event) => {
 
     if (page > numberOfPages) page = numberOfPages;
 
-    return usersList.slice(maxNumbers - perPage, maxNumbers);
+    result = usersList.slice(maxNumbers - perPage, maxNumbers);
   }
 
-  return usersList;
+  if (query.name === "desc") {
+    const sorted = result.sort((a: IUser, b: IUser) => {
+      if (a.name < b.name) {
+        return -1;
+      }
+      if (a.name > b.name) {
+        return 1;
+      }
+      return 0;
+    });
+    result = sorted;
+  }
+
+  return result;
 });
