@@ -1,48 +1,19 @@
-# Nuxt Example
+# Exploria Frontend Task
 
-Deploy your [Nuxt](https://nuxt.com) project to Vercel with zero configuration.
+Exploria Table Frontend Task - Mohammad Ranjbar
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/vercel/tree/main/examples/nuxtjs&template=nuxtjs)
+[Demo](https://exploria-frontend-task.vercel.app/)
 
-_Live Example: https://nuxtjs-template.vercel.app_
+## Stack
 
-Look at the [Nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
+1. Nuxt & Vue 3
+2. TypeScript
+3. TailwindCSS
 
-## Setup
+## Structure
 
-Make sure to install the dependencies:
+server: Users API request is in `server/api/users` that is accessible from all over the project
 
-```bash
-# yarn
-yarn
+filtering and handling data: all are handled with query parameters.
 
-# npm
-npm install
-
-# pnpm
-pnpm install --shamefully-hoist
-```
-
-## Development Server
-
-Start the development server on http://localhost:3000
-
-```bash
-npm run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-npm run build
-```
-
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Checkout the [deployment documentation](https://nuxt.com/docs/getting-started/deployment#presets) for more information.
+caching: data will be cached with each filter or sort for future ease of use
