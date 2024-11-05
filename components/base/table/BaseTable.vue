@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      class="xl:overflow-x-clip xl:h-[calc(100dvh-160px)] h-[calc(100dvh-230px)] overflow-y-auto overflow-x-hidden"
+      class="xl:overflow-x-clip xl:h-[calc(100dvh-160px)] h-[calc(100dvh-250px)] overflow-y-auto overflow-x-hidden"
     >
       <table
         v-if="data"

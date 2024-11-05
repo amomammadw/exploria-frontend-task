@@ -49,14 +49,14 @@
 <script setup lang="ts">
 import { usersList } from "~/data/records";
 
-const search = ref("");
-
 const route = useRoute();
 const { setQuery } = useSearchQuery();
 
 const page = ref(
   parseInt(route.query.page ? route.query.page.toString() : "1")
 );
+
+const search = ref(route.query.q ? route.query.q.toString() : "");
 
 const perPage = ref(
   parseInt(route.query.per_page ? route.query.per_page.toString() : "10")
@@ -71,7 +71,10 @@ function applyPagination() {
 }
 
 function resetPagination() {
-  setQuery({ page: "1", per_page: "10" });
+  search.value = "";
+  page.value = 1;
+  perPage.value = 10;
+  return navigateTo({ query: { page: "1", per_page: "10" } });
 }
 
 watch(
@@ -79,6 +82,7 @@ watch(
   () => {
     page.value = parseInt(route.query.page!.toString());
     perPage.value = parseInt(route.query.per_page!.toString());
+    search.value = route.query.q?.toString() || "";
   },
   {
     deep: true,
