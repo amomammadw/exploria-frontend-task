@@ -29,7 +29,7 @@
     <div>
       <input
         v-model="search"
-        class="base-input"
+        class="base-input !w-full"
         placeholder="Search"
         @keyup.enter="applySearch"
       />
