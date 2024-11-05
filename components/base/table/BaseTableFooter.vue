@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bg-gray-100 p-3 grid xl:grid-cols-4 grid-cols-2 items-center gap-3"
+    class="bg-gray-100 p-3 grid xl:grid-cols-5 grid-cols-2 items-center gap-3"
   >
     <div>
       Page:
@@ -13,6 +13,7 @@
         @keyup.enter="applyPagination"
       />
     </div>
+
     <div>
       Per Page:
       <input
@@ -23,6 +24,10 @@
         type="number"
         @keyup.enter="applyPagination"
       />
+    </div>
+
+    <div>
+      <input v-model="search" class="base-input" placeholder="Search" />
     </div>
 
     <button
@@ -43,6 +48,8 @@
 
 <script setup lang="ts">
 import { usersList } from "~/data/records";
+
+const search = ref("");
 
 const route = useRoute();
 const { setQuery } = useSearchQuery();
@@ -76,6 +83,14 @@ watch(
   {
     deep: true,
   }
+);
+
+watchDebounced(
+  search,
+  () => {
+    setQuery({ q: search.value });
+  },
+  { debounce: 1000 }
 );
 </script>
 

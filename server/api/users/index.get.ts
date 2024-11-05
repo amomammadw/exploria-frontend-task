@@ -30,5 +30,18 @@ export default defineCachedEventHandler((event) => {
     result = sorted;
   }
 
+  if (query.created_at === "desc" && query.name) {
+    const sorted = result.sort((a: IUser, b: IUser) => {
+      // @ts-ignore
+      return new Date(a.date) - new Date(b.date).getTime();
+    });
+
+    result = sorted;
+  }
+
+  if (query.q) {
+    result = searchItem(query.q.toString(), usersList);
+  }
+
   return result;
 });
