@@ -17,23 +17,28 @@ export default defineCachedEventHandler((event) => {
     result = usersList.slice(maxNumbers - perPage, maxNumbers);
   }
 
-  if (query.name === "desc") {
+  if (query.name) {
     const sorted = result.sort((a: IUser, b: IUser) => {
       if (a.name < b.name) {
-        return -1;
+        return query.name === "asc" ? -1 : 1;
       }
       if (a.name > b.name) {
-        return 1;
+        return query.name === "asc" ? 1 : -1;
       }
       return 0;
     });
     result = sorted;
   }
 
-  if (query.created_at === "desc" && query.name) {
+  if (query.created_at) {
     const sorted = result.sort((a: IUser, b: IUser) => {
-      // @ts-ignore
-      return new Date(a.date) - new Date(b.date).getTime();
+      if (query.created_at === "asc") {
+        // @ts-ignore
+        return new Date(b.date) - new Date(a.date).getTime();
+      } else {
+        // @ts-ignore
+        return new Date(a.date) - new Date(b.date).getTime();
+      }
     });
 
     result = sorted;

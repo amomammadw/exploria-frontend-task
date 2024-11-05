@@ -27,7 +27,12 @@
     </div>
 
     <div>
-      <input v-model="search" class="base-input" placeholder="Search" />
+      <input
+        v-model="search"
+        class="base-input"
+        placeholder="Search"
+        @keyup.enter="applySearch"
+      />
     </div>
 
     <button
@@ -38,7 +43,7 @@
     </button>
 
     <button
-      class="base-button bg-red-500 hover:bg-red-600"
+      class="base-button bg-red-500 hover:bg-red-600 xl:col-span-1 col-span-full"
       @click="resetPagination"
     >
       Reset <Icon name="tabler:filter-off" size="18" />
@@ -70,6 +75,10 @@ function applyPagination() {
   setQuery({ page: page.value.toString(), per_page: perPage.value.toString() });
 }
 
+function applySearch() {
+  setQuery({ q: search.value });
+}
+
 function resetPagination() {
   search.value = "";
   page.value = 1;
@@ -87,14 +96,6 @@ watch(
   {
     deep: true,
   }
-);
-
-watchDebounced(
-  search,
-  () => {
-    setQuery({ q: search.value });
-  },
-  { debounce: 1000 }
 );
 </script>
 

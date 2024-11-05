@@ -22,35 +22,9 @@
 </template>
 
 <script setup lang="ts">
-const headerItems = shallowRef([
-  {
-    label: "User ID",
-    sortable: false,
-    slug: "id",
-  },
-  {
-    label: "Name of the User",
-    sortable: true,
-    slug: "name",
-    isAsc: true,
-  },
-  {
-    label: "Date of Registration",
-    sortable: true,
-    slug: "created_at",
-    isAsc: true,
-  },
-  {
-    label: "Address",
-    sortable: false,
-    slug: "address",
-  },
-  {
-    label: "Phone Number",
-    sortable: false,
-    slug: "number",
-  },
-]);
+import { useTableData } from "~/data/useTableData";
+
+const { headerItems } = useTableData();
 
 const { setQuery } = useSearchQuery();
 
